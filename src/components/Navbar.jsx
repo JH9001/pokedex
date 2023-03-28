@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <Box>
       <Link to="/">
-        <Typography>Pokedex</Typography>
+        <Typography>Navbar</Typography>
       </Link>
     </Box>
   );
