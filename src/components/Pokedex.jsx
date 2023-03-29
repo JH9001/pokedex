@@ -5,12 +5,12 @@ import { useGlobalContext } from "../context";
 import { Typography } from "@mui/material";
 
 const Pokedex = () => {
-  const { loading, pokemon } = useGlobalContext();
+  const { isLoading, pokemonList } = useGlobalContext();
 
-  if (loading) {
+  if (isLoading) {
     return <Loading />;
   }
-  if (pokemon.length < 1) {
+  if (pokemonList.length < 1) {
     return <Typography>this pokemon does not exist</Typography>;
   }
   return <div>Pokedex</div>;
