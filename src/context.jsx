@@ -14,24 +14,41 @@ const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
-  const [search, setSearch] = useState("a");
-  const [pokemonList, setPokemonList] = useState([]);
+  const [pokemonID, setPokemonID] = useState(1);
+  const [pokemonName, setPokemonName] = useState("");
+  const [pokemonHeight, setPokemonHeight] = useState(0);
+  const [pokemonWeight, setPokemonWeight] = useState(0);
+  const [pokemonStats, setPokemonStats] = useState([]);
+  const [pokemonTypes, setPokemonTypes] = useState([]);
+  const [pokemonAbilities, setPokemonAbilities] = useState([]);
+
+  // const [pokemonImage, setPokemonImage] = useState([]);
+  // const [pokemonColor,setPokemonColor] = useState("")
+  // const [pokemonRegion, setPokemonRegion] = useState("");
 
   const fetchData = async () => {
     setIsLoading(true);
     try {
-      const {
-        data: { results },
-      } = await axios(url);
+      const response = await axios(`${url}${pokemonID}`);
 
-      if (results) {
-        const newPokemon = results.map((pokemon) => {
-          const { name, url } = pokemon;
-          return { name, url };
-        });
-        setPokemonList(newPokemon);
+      console.log(response);
+
+      const {
+        data: { id, name, height, weight, stats, types, abilities },
+      } = response;
+
+      console.log(id, name, height, weight, stats, types, abilities);
+
+      if (response) {
+        setPokemonID(id);
+        setPokemonName(name);
+        setPokemonHeight(height);
+        setPokemonWeight(weight);
+        setPokemonStats(stats);
+        setPokemonTypes(types);
+        setPokemonAbilities(abilities);
       } else {
-        setPokemonList([]);
+        console.log("FIX ME!");
       }
       setIsLoading(false);
     } catch (error) {
@@ -45,7 +62,18 @@ const AppProvider = ({ children }) => {
   }, []);
 
   return (
-    <AppContext.Provider value={{ isLoading, pokemonList, setSearch }}>
+    <AppContext.Provider
+      value={{
+        isLoading,
+        pokemonID,
+        pokemonName,
+        pokemonHeight,
+        pokemonWeight,
+        pokemonStats,
+        pokemonTypes,
+        pokemonAbilities,
+      }}
+    >
       {children}
     </AppContext.Provider>
   );
