@@ -1,10 +1,4 @@
-import {
-  useState,
-  useContext,
-  useEffect,
-  useCallback,
-  createContext,
-} from "react";
+import { useState, useContext, useEffect, createContext } from "react";
 
 import axios from "axios";
 
@@ -24,6 +18,7 @@ const AppProvider = ({ children }) => {
     types: [],
     abilities: [],
     image: "",
+    shiny: "",
     color: "",
     region: "",
   });
@@ -33,13 +28,43 @@ const AppProvider = ({ children }) => {
     try {
       const response = await axios(`${url}${pokemonSearch}`);
 
+      console.log(response);
+
       const {
-        data: { id, name, height, weight, stats, types, abilities },
+        data: {
+          id,
+          name,
+          height,
+          weight,
+          stats,
+          types,
+          abilities,
+          sprites: {
+            other: {
+              "official-artwork": { front_default: image },
+            },
+          },
+          sprites: {
+            other: {
+              "official-artwork": { front_shiny: shiny },
+            },
+          },
+        },
       } = response;
 
       if (response) {
         setPokemonSearch(id);
-        setPokemonData({ id, name, height, weight, stats, types, abilities });
+        setPokemonData({
+          id,
+          name,
+          height,
+          weight,
+          stats,
+          types,
+          abilities,
+          image,
+          shiny,
+        });
       } else {
         console.log("FIX ME!");
       }

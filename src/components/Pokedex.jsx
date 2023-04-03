@@ -1,11 +1,14 @@
 import Loading from "./Loading";
 
+import Image from "./pokemon/Image";
+
 import { useGlobalContext } from "../context";
 import { Box, Typography } from "@mui/material";
 
 const Pokedex = () => {
   const { isLoading, pokemonID, pokemonData } = useGlobalContext();
-  const { id, name, height, weight, stats, types, abilities } = pokemonData;
+  const { id, name, height, weight, stats, types, abilities, image, shiny } =
+    pokemonData;
 
   if (isLoading) {
     return <Loading />;
@@ -15,6 +18,7 @@ const Pokedex = () => {
   }
   return (
     <Box>
+      <Image />
       <Typography>id: {id}</Typography>
       <Typography>name: {name}</Typography>
       <Typography>height: {height}</Typography>
