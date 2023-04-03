@@ -1,4 +1,3 @@
-import Pokemon from "./Pokemon";
 import Loading from "./Loading";
 
 import { useGlobalContext } from "../context";

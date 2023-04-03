@@ -5,7 +5,6 @@ import { Box } from "@mui/system";
 const Home = () => {
   return (
     <Box>
-      <SearchPokemon />
       <Pokedex />
     </Box>
   );
