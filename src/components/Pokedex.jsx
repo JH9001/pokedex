@@ -5,16 +5,8 @@ import { useGlobalContext } from "../context";
 import { Box, Typography } from "@mui/material";
 
 const Pokedex = () => {
-  const {
-    isLoading,
-    pokemonID,
-    pokemonName,
-    pokemonHeight,
-    pokemonWeight,
-    pokemonStats,
-    pokemonTypes,
-    pokemonAbilities,
-  } = useGlobalContext();
+  const { isLoading, pokemonID, pokemonData } = useGlobalContext();
+  const { id, name, height, weight, stats, types, abilities } = pokemonData;
 
   if (isLoading) {
     return <Loading />;
@@ -24,11 +16,11 @@ const Pokedex = () => {
   }
   return (
     <Box>
-      <Typography>id: {pokemonID}</Typography>
-      <Typography>name: {pokemonName}</Typography>
-      <Typography>height: {pokemonHeight}</Typography>
-      <Typography>weight: {pokemonWeight}</Typography>
-      {pokemonStats.map((stat, index) => {
+      <Typography>id: {id}</Typography>
+      <Typography>name: {name}</Typography>
+      <Typography>height: {height}</Typography>
+      <Typography>weight: {weight}</Typography>
+      {stats.map((stat, index) => {
         return (
           <Box key={index}>
             <Typography>{stat.stat.name}</Typography>
@@ -36,14 +28,14 @@ const Pokedex = () => {
           </Box>
         );
       })}
-      {pokemonTypes.map((type, index) => {
+      {types.map((type, index) => {
         return (
           <Box key={index}>
             <Typography>{type.type.name}</Typography>
           </Box>
         );
       })}
-      {pokemonAbilities.map((ability, index) => {
+      {abilities.map((ability, index) => {
         return (
           <Box key={index}>
             <Typography>{ability.ability.name}</Typography>

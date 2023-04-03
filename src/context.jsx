@@ -14,39 +14,32 @@ const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
-  const [pokemonID, setPokemonID] = useState(1);
-  const [pokemonName, setPokemonName] = useState("");
-  const [pokemonHeight, setPokemonHeight] = useState(0);
-  const [pokemonWeight, setPokemonWeight] = useState(0);
-  const [pokemonStats, setPokemonStats] = useState([]);
-  const [pokemonTypes, setPokemonTypes] = useState([]);
-  const [pokemonAbilities, setPokemonAbilities] = useState([]);
-
-  // const [pokemonImage, setPokemonImage] = useState([]);
-  // const [pokemonColor,setPokemonColor] = useState("")
-  // const [pokemonRegion, setPokemonRegion] = useState("");
+  const [pokemonSearch, setPokemonSearch] = useState("1");
+  const [pokemonData, setPokemonData] = useState({
+    id: "",
+    name: "",
+    height: "",
+    weight: "",
+    stats: [],
+    types: [],
+    abilities: [],
+    image: "",
+    color: "",
+    region: "",
+  });
 
   const fetchData = async () => {
     setIsLoading(true);
     try {
-      const response = await axios(`${url}${pokemonID}`);
-
-      console.log(response);
+      const response = await axios(`${url}${pokemonSearch}`);
 
       const {
         data: { id, name, height, weight, stats, types, abilities },
       } = response;
 
-      console.log(id, name, height, weight, stats, types, abilities);
-
       if (response) {
-        setPokemonID(id);
-        setPokemonName(name);
-        setPokemonHeight(height);
-        setPokemonWeight(weight);
-        setPokemonStats(stats);
-        setPokemonTypes(types);
-        setPokemonAbilities(abilities);
+        setPokemonSearch(id);
+        setPokemonData({ id, name, height, weight, stats, types, abilities });
       } else {
         console.log("FIX ME!");
       }
@@ -59,19 +52,17 @@ const AppProvider = ({ children }) => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [pokemonSearch]);
 
   return (
     <AppContext.Provider
       value={{
         isLoading,
-        pokemonID,
-        pokemonName,
-        pokemonHeight,
-        pokemonWeight,
-        pokemonStats,
-        pokemonTypes,
-        pokemonAbilities,
+        pokemonSearch,
+        pokemonData,
+        setIsLoading,
+        setPokemonSearch,
+        setPokemonData,
       }}
     >
       {children}

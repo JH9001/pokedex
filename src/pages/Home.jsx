@@ -1,11 +1,11 @@
-import Search from "../components/Search";
+import SearchPokemon from "../components/SearchPokemon";
 import Pokedex from "../components/Pokedex";
 import { Box } from "@mui/system";
 
 const Home = () => {
   return (
     <Box>
-      <Search />
+      <SearchPokemon />
       <Pokedex />
     </Box>
   );
