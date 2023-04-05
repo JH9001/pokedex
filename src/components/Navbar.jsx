@@ -7,11 +7,7 @@ const Navbar = () => {
   const { pokemonData } = useGlobalContext();
   const { id, name } = pokemonData;
   return (
-    <Container sx={{ display: "flex" }}>
-      <Box>
-        <Typography>#{id}</Typography>
-        <Typography>{name}</Typography>
-      </Box>
+    <Container sx={{ display: "flex", pt: "4rem" }}>
       <SearchPokemon />
     </Container>
   );

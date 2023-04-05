@@ -1,39 +1,52 @@
 .black {
-  background-color: hsla(0, 0%, 0%, 0.5);
+  background-color: rgb(85, 101, 114);
 }
 
 .blue {
-  background-color: hsla(240, 100%, 50%, 0.5);
+  background-color: rgb(91, 163, 183);
 }
 
 .brown {
-  background-color: hsla(0, 59%, 41%, 0.5);
+  background-color: rgb(172, 141, 123);
 }
 
 .gray {
-  background-color: hsla(0, 0%, 50%, 0.5);
+  background-color: rgb(188, 190, 203);
 }
 
 .green {
-  background-color: hsla(120, 100%, 25%, 0.5);
+  background-color: rgb(146, 209, 180);
 }
 
 .pink {
-  background-color: hsl(350, 100%, 88%);
+  background-color: rgb(239, 196, 211);
 }
 
 .purple {
-  background-color: hsla(300, 100%, 25%, 0.5);
+  background-color: rgb(111, 99, 150);
 }
 
 .red {
-  background-color: hsla(0, 100%, 50%, 0.5);
+  background-color: rgb(244, 178, 134);
 }
 
 .white {
-  background-color: hsla(0, 0%, 96%, 0.5);
+  background-color: rgb(251, 251, 251);
 }
 
 .yellow {
-  background-color: hsla(60, 100%, 50%, 0.5);
+  background-color: rgb(246, 229, 133);
+}
+
+.rotating {
+  animation: rotate 1s infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

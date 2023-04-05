@@ -1,6 +1,6 @@
-import { Skeleton } from "@mui/material";
+import pokeball from "../assets/images/pokeball.svg";
 
 const Loading = () => {
-  return <Skeleton variant="circular" width={350} height={350} />;
+  return <img className="rotating" src={pokeball} alt="pokeball" />;
 };
 export default Loading;

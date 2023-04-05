@@ -1,10 +1,8 @@
 import Loading from "./Loading";
-import Biometrics from "./pokemon/Biometrics";
-import Types from "./pokemon/Types";
-import Stats from "./pokemon/Stats";
-import Abilities from "./pokemon/Abilities";
+import Image from "./pokemon/Image";
+import PokeCard from "./PokeCard";
 
-import { Box, Typography } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 
 import { useGlobalContext } from "../context";
 
@@ -19,12 +17,17 @@ const Pokedex = () => {
     return <Typography>no known Pokemon with this name</Typography>;
   }
   return (
-    <Box>
-      <Biometrics />
-      <Types />
-      <Stats />
-      <Abilities />
-    </Box>
+    <Container
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Image />
+      <PokeCard />
+    </Container>
   );
 };
 export default Pokedex;
