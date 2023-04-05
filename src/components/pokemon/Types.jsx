@@ -6,7 +6,7 @@ const Types = () => {
   const { types } = pokemonData;
 
   return (
-    <Box>
+    <Box sx={{ display: "flex" }}>
       {types.map((type, index) => {
         return (
           <Box key={index}>

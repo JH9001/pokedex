@@ -7,14 +7,17 @@ const Stats = () => {
 
   return (
     <Box>
-      {stats.map((stat, index) => {
-        return (
-          <Box key={index}>
-            <Typography>{stat.stat.name}</Typography>
-            <Typography>{stat.base_stat}</Typography>
-          </Box>
-        );
-      })}
+      <Typography variant="h6">Base Stats</Typography>
+      <Box sx={{ display: "flex" }}>
+        {stats.map((stat, index) => {
+          return (
+            <Box key={index}>
+              <Typography>{stat.stat.name}</Typography>
+              <Typography>{stat.base_stat}</Typography>
+            </Box>
+          );
+        })}
+      </Box>
     </Box>
   );
 };

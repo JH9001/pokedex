@@ -20,8 +20,9 @@ const AppProvider = ({ children }) => {
     image: "",
     shiny: "",
     color: "",
-    region: "",
   });
+  const [pokemonID, setPokemonID] = useState(1);
+  const [pokemonRegion, setPokemonRegion] = useState("");
 
   const fetchData = async () => {
     setIsLoading(true);
@@ -73,6 +74,7 @@ const AppProvider = ({ children }) => {
           shiny,
           color,
         });
+        setPokemonID(id);
       } else {
         console.log("FIX ME!");
       }
@@ -83,8 +85,22 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  const showRegion = (id) => {
+    if (id >= 1 && id <= 151) setPokemonRegion("Kanto");
+    if (id >= 152 && id <= 251) setPokemonRegion("Johto");
+    if (id >= 252 && id <= 386) setPokemonRegion("Hoenn");
+    if (id >= 387 && id <= 493) setPokemonRegion("Sinnoh");
+    if (id >= 494 && id <= 649) setPokemonRegion("Unova");
+    if (id >= 650 && id <= 721) setPokemonRegion("Kalos");
+    if (id >= 722 && id <= 809) setPokemonRegion("Alola");
+    if (id >= 810 && id <= 890) setPokemonRegion("Galar");
+    if (id >= 891 && id <= 905) setPokemonRegion("Hisui");
+    if (id >= 906 && id <= 1010) setPokemonRegion("Paldea");
+  };
+
   useEffect(() => {
     fetchData();
+    showRegion(pokemonID);
   }, [pokemonSearch]);
 
   return (
@@ -93,9 +109,11 @@ const AppProvider = ({ children }) => {
         isLoading,
         pokemonSearch,
         pokemonData,
+        pokemonRegion,
         setIsLoading,
         setPokemonSearch,
         setPokemonData,
+        setPokemonRegion,
       }}
     >
       {children}

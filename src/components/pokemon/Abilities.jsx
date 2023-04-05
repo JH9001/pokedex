@@ -6,7 +6,7 @@ const Abilities = () => {
   const { abilities } = pokemonData;
 
   return (
-    <Box>
+    <Box sx={{ display: "flex" }}>
       {abilities.map((ability, index) => {
         return (
           <Box key={index}>

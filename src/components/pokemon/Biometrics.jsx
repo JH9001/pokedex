@@ -8,8 +8,8 @@ const Biometrics = () => {
 
   return (
     <Box>
-      <Typography>{height}</Typography>
-      <Typography>{weight}</Typography>
+      <Typography variant="h5">{height}</Typography>
+      <Typography variant="h5">{weight}</Typography>
     </Box>
   );
 };
