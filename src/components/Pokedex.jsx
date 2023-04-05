@@ -7,8 +7,7 @@ import { Box, Typography } from "@mui/material";
 
 const Pokedex = () => {
   const { isLoading, pokemonID, pokemonData } = useGlobalContext();
-  const { id, name, height, weight, stats, types, abilities, image, shiny } =
-    pokemonData;
+  const { id, name, height, weight, stats, types, abilities } = pokemonData;
 
   if (isLoading) {
     return <Loading />;

@@ -1,0 +1,39 @@
+.black {
+  background-color: hsla(0, 0%, 0%, 0.5);
+}
+
+.blue {
+  background-color: hsla(240, 100%, 50%, 0.5);
+}
+
+.brown {
+  background-color: hsla(0, 59%, 41%, 0.5);
+}
+
+.gray {
+  background-color: hsla(0, 0%, 50%, 0.5);
+}
+
+.green {
+  background-color: hsla(120, 100%, 25%, 0.5);
+}
+
+.pink {
+  background-color: hsl(350, 100%, 88%);
+}
+
+.purple {
+  background-color: hsla(300, 100%, 25%, 0.5);
+}
+
+.red {
+  background-color: hsla(0, 100%, 50%, 0.5);
+}
+
+.white {
+  background-color: hsla(0, 0%, 96%, 0.5);
+}
+
+.yellow {
+  background-color: hsla(60, 100%, 50%, 0.5);
+}

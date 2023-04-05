@@ -26,9 +26,10 @@ const AppProvider = ({ children }) => {
   const fetchData = async () => {
     setIsLoading(true);
     try {
-      const response = await axios(`${url}${pokemonSearch}`);
-
-      console.log(response);
+      const response = await Promise.all([
+        axios(`https://pokeapi.co/api/v2/pokemon/${pokemonSearch}`),
+        axios(`https://pokeapi.co/api/v2/pokemon-species/${pokemonSearch}`),
+      ]);
 
       const {
         data: {
@@ -50,7 +51,13 @@ const AppProvider = ({ children }) => {
             },
           },
         },
-      } = response;
+      } = response[0];
+
+      const {
+        data: {
+          color: { name: color },
+        },
+      } = response[1];
 
       if (response) {
         setPokemonSearch(id);
@@ -64,6 +71,7 @@ const AppProvider = ({ children }) => {
           abilities,
           image,
           shiny,
+          color,
         });
       } else {
         console.log("FIX ME!");

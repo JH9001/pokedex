@@ -41,6 +41,7 @@ const SearchPokemon = () => {
               name="pokemon"
               error={!!touched.pokemon && !!errors.pokemon}
               helperText={touched.pokemon && errors.pokemon}
+              sx={{ bgcolor: "white" }}
             />
             <Button variant="contained" type="submit">
               Submit
