@@ -1,12 +1,19 @@
-import { Box } from "@mui/system";
-
 import SearchPokemon from "./SearchPokemon";
 
+import { useGlobalContext } from "../context";
+import { Box, Container, Typography } from "@mui/material";
+
 const Navbar = () => {
+  const { pokemonData } = useGlobalContext();
+  const { id, name } = pokemonData;
   return (
-    <Box>
+    <Container sx={{ display: "flex" }}>
+      <Box>
+        <Typography>#{id}</Typography>
+        <Typography>{name}</Typography>
+      </Box>
       <SearchPokemon />
-    </Box>
+    </Container>
   );
 };
 export default Navbar;

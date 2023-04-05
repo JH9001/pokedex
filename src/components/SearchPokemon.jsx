@@ -33,6 +33,7 @@ const SearchPokemon = () => {
         }) => (
           <form onSubmit={handleSubmit}>
             <TextField
+              variant="outlined"
               type="text"
               label="Pokemon Name or ID"
               onBlur={handleBlur}

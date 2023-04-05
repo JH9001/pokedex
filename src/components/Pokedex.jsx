@@ -1,49 +1,29 @@
 import Loading from "./Loading";
+import Biometrics from "./pokemon/Biometrics";
+import Types from "./pokemon/Types";
+import Stats from "./pokemon/Stats";
+import Abilities from "./pokemon/Abilities";
 
-import Image from "./pokemon/Image";
-
-import { useGlobalContext } from "../context";
 import { Box, Typography } from "@mui/material";
 
+import { useGlobalContext } from "../context";
+
 const Pokedex = () => {
-  const { isLoading, pokemonID, pokemonData } = useGlobalContext();
-  const { id, name, height, weight, stats, types, abilities } = pokemonData;
+  const { isLoading, pokemonData } = useGlobalContext();
+  const { id } = pokemonData;
 
   if (isLoading) {
     return <Loading />;
   }
-  if (pokemonID < 1) {
+  if (id < 1) {
     return <Typography>no known Pokemon with this name</Typography>;
   }
   return (
     <Box>
-      <Image />
-      <Typography>id: {id}</Typography>
-      <Typography>name: {name}</Typography>
-      <Typography>height: {height}</Typography>
-      <Typography>weight: {weight}</Typography>
-      {stats.map((stat, index) => {
-        return (
-          <Box key={index}>
-            <Typography>{stat.stat.name}</Typography>
-            <Typography>{stat.base_stat}</Typography>
-          </Box>
-        );
-      })}
-      {types.map((type, index) => {
-        return (
-          <Box key={index}>
-            <Typography>{type.type.name}</Typography>
-          </Box>
-        );
-      })}
-      {abilities.map((ability, index) => {
-        return (
-          <Box key={index}>
-            <Typography>{ability.ability.name}</Typography>
-          </Box>
-        );
-      })}
+      <Biometrics />
+      <Types />
+      <Stats />
+      <Abilities />
     </Box>
   );
 };
