@@ -9,7 +9,7 @@ const Types = () => {
     <Box sx={{ display: "flex" }}>
       {types.map((type, index) => {
         return (
-          <Box key={index}>
+          <Box key={index} sx={{ margin: "1rem" }}>
             <Typography>{type.type.name}</Typography>
           </Box>
         );

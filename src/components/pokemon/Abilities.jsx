@@ -9,7 +9,7 @@ const Abilities = () => {
     <Box sx={{ display: "flex" }}>
       {abilities.map((ability, index) => {
         return (
-          <Box key={index}>
+          <Box key={index} sx={{ margin: "1rem" }}>
             <Typography>{ability.ability.name}</Typography>
           </Box>
         );

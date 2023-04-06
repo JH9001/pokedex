@@ -7,11 +7,13 @@ const Stats = () => {
 
   return (
     <Box>
-      <Typography variant="h6">Base Stats</Typography>
+      <Typography variant="h6" sx={{ ml: "1rem" }}>
+        Base Stats
+      </Typography>
       <Box sx={{ display: "flex" }}>
         {stats.map((stat, index) => {
           return (
-            <Box key={index}>
+            <Box key={index} sx={{ margin: "1rem" }}>
               <Typography>{stat.stat.name}</Typography>
               <Typography>{stat.base_stat}</Typography>
             </Box>

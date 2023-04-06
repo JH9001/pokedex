@@ -1,7 +1,7 @@
 import Loading from "./Loading";
 import Image from "./pokemon/Image";
 
-import { Box, Typography } from "@mui/material";
+import { Box, Skeleton, Typography } from "@mui/material";
 
 import { useGlobalContext } from "../context";
 import Biometrics from "./pokemon/Biometrics";
@@ -12,7 +12,7 @@ import Region from "./pokemon/Region";
 
 const Pokedex = () => {
   const { isLoading, pokemonData } = useGlobalContext();
-  const { id } = pokemonData;
+  const { id, image } = pokemonData;
 
   if (isLoading) {
     return <Loading />;
@@ -21,20 +21,32 @@ const Pokedex = () => {
     return <Typography>no known Pokemon with this name</Typography>;
   }
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Box
-        sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
-      >
-        <Biometrics />
-        <Image />
-        <Box>
+    <Box>
+      <Box sx={{ display: "flex", pt: "5rem" }}>
+        <Box
+          sx={{
+            display: "flex",
+            mr: "auto",
+            pr: "5rem",
+            flex: "1",
+            justifyContent: "flex-end",
+            alignItems: "center",
+          }}
+        >
+          <Biometrics />
+        </Box>
+        <Box sx={{ display: "flex", justifyContent: "center", flex: "1" }}>
+          {image ? <Image /> : <Loading />}
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            ml: "auto",
+            flex: "1",
+          }}
+        >
           <Types />
           <Stats />
           <Abilities />

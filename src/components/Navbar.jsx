@@ -4,7 +4,7 @@ import { Container } from "@mui/material";
 
 const Navbar = () => {
   return (
-    <Container sx={{ display: "flex", pt: "4rem" }}>
+    <Container sx={{ display: "flex", pt: "4rem", justifyContent: "flex-end" }}>
       <SearchPokemon />
     </Container>
   );
