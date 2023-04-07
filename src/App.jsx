@@ -14,7 +14,6 @@ const App = () => {
   return (
     <Box className={color} sx={{ height: "100vh" }}>
       <BrowserRouter>
-        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="*" element={<Error />} />

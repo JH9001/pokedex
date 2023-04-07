@@ -2,6 +2,7 @@ import Loading from "./Loading";
 import Image from "./pokemon/Image";
 
 import { Box, Skeleton, Typography } from "@mui/material";
+import Grid from "@mui/material/Grid";
 
 import { useGlobalContext } from "../context";
 import Biometrics from "./pokemon/Biometrics";
@@ -9,6 +10,7 @@ import Types from "./pokemon/Types";
 import Stats from "./pokemon/Stats";
 import Abilities from "./pokemon/Abilities";
 import Region from "./pokemon/Region";
+import Navbar from "./Navbar";
 
 const Pokedex = () => {
   const { isLoading, pokemonData } = useGlobalContext();
@@ -22,8 +24,10 @@ const Pokedex = () => {
   }
   return (
     <Box>
-      <Box sx={{ display: "flex", pt: "5rem" }}>
-        <Box
+      <Navbar />
+      <Grid container spacing={2}>
+        <Grid
+          item
           sx={{
             display: "flex",
             mr: "auto",
@@ -34,11 +38,17 @@ const Pokedex = () => {
           }}
         >
           <Biometrics />
-        </Box>
-        <Box sx={{ display: "flex", justifyContent: "center", flex: "1" }}>
-          {image ? <Image /> : <Loading />}
-        </Box>
-        <Box
+        </Grid>
+
+        <Grid
+          item
+          sx={{ display: "flex", justifyContent: "center", flex: "1" }}
+        >
+          <Box>{image ? <Image /> : <Loading />}</Box>
+        </Grid>
+
+        <Grid
+          item
           sx={{
             display: "flex",
             flexDirection: "column",
@@ -50,8 +60,8 @@ const Pokedex = () => {
           <Types />
           <Stats />
           <Abilities />
-        </Box>
-      </Box>
+        </Grid>
+      </Grid>
     </Box>
   );
 };

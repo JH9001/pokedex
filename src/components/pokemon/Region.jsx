@@ -2,7 +2,7 @@ import { useGlobalContext } from "../../context";
 import { Box, Skeleton, Typography } from "@mui/material";
 
 const Region = () => {
-  const { pokemonRegion, isLoading } = useGlobalContext();
+  const { pokemonRegion } = useGlobalContext();
 
   return (
     <Box>
