@@ -3,7 +3,14 @@ import pokeball from "../assets/images/pokeball.svg";
 
 const Loading = () => {
   return (
-    <Box sx={{ display: "flex", justifyContent: "center" }}>
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+      }}
+    >
       <Box
         component="img"
         className="rotating"
@@ -14,7 +21,6 @@ const Loading = () => {
         src={pokeball}
         alt="pokeball"
       />
-      {/* <img className="rotating" src={pokeball} alt="pokeball" />; */}
     </Box>
   );
 };

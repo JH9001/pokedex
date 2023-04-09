@@ -64,9 +64,9 @@ const AppProvider = ({ children }) => {
         setPokemonSearch(id);
         setPokemonData({
           id,
-          name,
-          height,
-          weight,
+          name: name[0].toUpperCase() + name.slice(1),
+          height: height / 10,
+          weight: weight / 10,
           stats,
           types,
           abilities,

@@ -5,16 +5,15 @@ import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 
 import { useGlobalContext } from "../../context";
 import { useState } from "react";
-import Region from "./Region";
 
 const Image = () => {
   const { pokemonData } = useGlobalContext();
-  const { id, name, image, shiny, color } = pokemonData;
+  const { id, name, image, shiny } = pokemonData;
 
   const [showShiny, setShowShiny] = useState(false);
 
   return (
-    <Box>
+    <Box sx={{ mt: "1rem" }}>
       <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
         <Box sx={{ display: "flex", flexGrow: "1" }}>
           <Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -43,24 +42,31 @@ const Image = () => {
         {showShiny ? (
           <IconButton
             onClick={() => setShowShiny(!showShiny)}
-            sx={{ color: "gold" }}
+            sx={{ color: "#e8b923" }}
           >
-            {<AutoAwesomeIcon style={{ fontSize: 50 }} />}
+            {<AutoAwesomeIcon style={{ fontSize: 45 }} />}
           </IconButton>
         ) : (
           <IconButton
             onClick={() => setShowShiny(!showShiny)}
-            sx={{ "& :hover": { color: "gold" } }}
+            sx={{ "& :hover": { color: "#e8b923" } }}
           >
-            {<AutoAwesomeIcon style={{ fontSize: 50 }} />}
+            {<AutoAwesomeIcon style={{ fontSize: 45 }} />}
           </IconButton>
         )}
       </Box>
       <Box>
-        <img src={showShiny ? shiny : image} alt={name} loading="lazy" />
-      </Box>
-      <Box sx={{ display: "flex", justifyContent: "center" }}>
-        <Region />
+        <Box
+          component="img"
+          loading="lazy"
+          alt={name}
+          src={showShiny ? shiny : image}
+          height="100%"
+          preserveAspectRatio="xMinYMin slice"
+          width="100%"
+          viewBox="0 0 100 100"
+          sx={{ pt: "3rem" }}
+        />
       </Box>
     </Box>
   );
