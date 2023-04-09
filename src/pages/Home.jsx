@@ -5,7 +5,7 @@ import { Container } from "@mui/material";
 
 const Home = () => {
   return (
-    <Box sx={{ pl: "2rem", pr: "2rem" }}>
+    <Box className={"bgHeight"} sx={{ pl: "2rem", pr: "2rem" }}>
       <Pokedex />
     </Box>
   );

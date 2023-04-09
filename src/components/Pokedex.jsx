@@ -23,11 +23,7 @@ const Pokedex = () => {
     return <Typography>no known Pokemon with this name</Typography>;
   }
   return (
-    <Box
-      sx={{
-        height: "100vh",
-      }}
-    >
+    <Box>
       <Navbar />
       <Grid
         container

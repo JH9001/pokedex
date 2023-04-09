@@ -1,4 +1,8 @@
-body,
+.bgHeight {
+  height: 100vh;
+  overflow-y: scroll;
+}
+
 .black {
   background-color: rgb(85, 101, 114);
 }
