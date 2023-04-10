@@ -1,4 +1,5 @@
 import Loading from "./Loading";
+import Title from "./pokemon/Title";
 import Image from "./pokemon/Image";
 
 import { Box, Container, Skeleton, Typography } from "@mui/material";
@@ -10,7 +11,7 @@ import Types from "./pokemon/Types";
 import Stats from "./pokemon/Stats";
 import Abilities from "./pokemon/Abilities";
 import Region from "./pokemon/Region";
-import Navbar from "./Navbar";
+import Shiny from "./pokemon/Shiny";
 
 const Pokedex = () => {
   const { isLoading, pokemonData } = useGlobalContext();
@@ -24,77 +25,35 @@ const Pokedex = () => {
   }
   return (
     <Box>
-      <Navbar />
-      <Grid
-        container
-        spacing={2}
-        sx={{
-          display: "flex",
-          pt: "3rem",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "80%",
-        }}
-      >
+      <Grid container spacing={2}>
         {/* BIOMETRICS */}
-        <Grid
-          item
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-          xs={12}
-          sm={4}
-          md={2}
-          lg={2}
-        >
+        <Grid item xs={12} sm={4} md={2} lg={2}>
+          <Title />
           <Biometrics />
+          <Region />
         </Grid>
 
         {/* IMAGE */}
         <Grid
           item
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
           xs={12}
           sm={8}
           md={10}
           lg={6}
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+          }}
         >
           {image ? <Image /> : <Loading />}
         </Grid>
 
         {/* TYPES, STATS, ABILITIES */}
-        <Grid
-          item
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-          xs={12}
-          lg={4}
-        >
+        <Grid item xs={12} lg={4}>
           <Types />
           <Stats />
           <Abilities />
         </Grid>
-
-        {/* REGION */}
-        <Grid
-          item
-          sx={{ display: "flex", justifyContent: "center" }}
-          xs={12}
-          lg={8}
-        >
-          <Region />
-        </Grid>
-        <Grid item lg={2}></Grid>
       </Grid>
     </Box>
   );

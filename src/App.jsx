@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Box } from "@mui/system";
 import { useGlobalContext } from "./context";
 
-import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Error from "./pages/Error";
 

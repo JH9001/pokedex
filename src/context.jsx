@@ -22,6 +22,7 @@ const AppProvider = ({ children }) => {
     color: "",
   });
   const [pokemonID, setPokemonID] = useState(1);
+  const [pokemonShiny, setPokemonShiny] = useState(false);
   const [pokemonRegion, setPokemonRegion] = useState("");
 
   const fetchData = async () => {
@@ -109,10 +110,12 @@ const AppProvider = ({ children }) => {
         isLoading,
         pokemonSearch,
         pokemonData,
+        pokemonShiny,
         pokemonRegion,
         setIsLoading,
         setPokemonSearch,
         setPokemonData,
+        setPokemonShiny,
         setPokemonRegion,
       }}
     >

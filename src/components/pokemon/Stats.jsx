@@ -9,37 +9,20 @@ const Stats = () => {
   const { stats } = pokemonData;
 
   return (
-    <Box
-      sx={{
-        display: "Flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <Box>
       <Typography variant="h6" sx={{ fontWeight: 700, mb: "1rem" }}>
         Base Stats:
       </Typography>
 
-      <Grid
-        container
-        spacing={2}
-        sx={{
-          display: "Flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+      <Grid container spacing={2}>
         {stats.map((stat, index) => {
           return (
             <Grid item key={index}>
-              <Box sx={{ mb: "1rem" }}>
-                <Card sx={{ padding: "5px" }}>
-                  <Typography sx={{ fontWeight: 500 }}>
-                    {stat.stat.name}: {stat.base_stat}
-                  </Typography>
-                </Card>
-              </Box>
+              <Card sx={{ padding: "5px" }}>
+                <Typography sx={{ fontWeight: 500 }}>
+                  {stat.stat.name}: {stat.base_stat}
+                </Typography>
+              </Card>
             </Grid>
           );
         })}

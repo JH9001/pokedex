@@ -1,74 +1,28 @@
-import { Box, Typography } from "@mui/material";
-
-import { IconButton } from "@mui/material";
-import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
+import { Box, Grid } from "@mui/material";
 
 import { useGlobalContext } from "../../context";
-import { useState } from "react";
+
+import Shiny from "./Shiny";
 
 const Image = () => {
-  const { pokemonData } = useGlobalContext();
-  const { id, name, image, shiny } = pokemonData;
-
-  const [showShiny, setShowShiny] = useState(false);
+  const { pokemonData, pokemonShiny } = useGlobalContext();
+  const { name, image, shiny } = pokemonData;
 
   return (
-    <Box sx={{ mt: "1rem" }}>
-      <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
-        <Box sx={{ display: "flex", flexGrow: "1" }}>
-          <Box sx={{ display: "flex", flexDirection: "column" }}>
-            <Typography
-              color={"white"}
-              sx={{
-                textShadow: "0 0 12px rgba(0,0,0,.25)",
-                fontSize: "1.4rem",
-                fontWeight: 700,
-              }}
-            >
-              #{id}
-            </Typography>
-            <Typography
-              color={"white"}
-              sx={{
-                textShadow: "0 0 12px rgba(0,0,0,.25)",
-                fontSize: "1.8rem",
-                fontWeight: 500,
-              }}
-            >
-              {name}
-            </Typography>
-          </Box>
+    <Grid container>
+      <Grid item>
+        <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+          <Shiny />
         </Box>
-        {showShiny ? (
-          <IconButton
-            onClick={() => setShowShiny(!showShiny)}
-            sx={{ color: "#e8b923" }}
-          >
-            {<AutoAwesomeIcon style={{ fontSize: 45 }} />}
-          </IconButton>
-        ) : (
-          <IconButton
-            onClick={() => setShowShiny(!showShiny)}
-            sx={{ "& :hover": { color: "#e8b923" } }}
-          >
-            {<AutoAwesomeIcon style={{ fontSize: 45 }} />}
-          </IconButton>
-        )}
-      </Box>
-      <Box>
         <Box
           component="img"
           loading="lazy"
           alt={name}
-          src={showShiny ? shiny : image}
-          height="100%"
-          preserveAspectRatio="xMinYMin slice"
-          width="100%"
-          viewBox="0 0 100 100"
-          sx={{ pt: "3rem" }}
+          src={pokemonShiny ? shiny : image}
+          sx={{ width: "100%" }}
         />
-      </Box>
-    </Box>
+      </Grid>
+    </Grid>
   );
 };
 export default Image;

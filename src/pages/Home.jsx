@@ -1,11 +1,11 @@
 import SearchPokemon from "../components/SearchPokemon";
 import Pokedex from "../components/Pokedex";
 import { Box } from "@mui/system";
-import { Container } from "@mui/material";
 
 const Home = () => {
   return (
-    <Box className={"bgHeight"} sx={{ pl: "2rem", pr: "2rem" }}>
+    <Box className={"bgHeight"}>
+      <SearchPokemon />
       <Pokedex />
     </Box>
   );
