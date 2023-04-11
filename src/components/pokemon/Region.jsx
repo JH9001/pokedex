@@ -1,14 +1,22 @@
 import { useGlobalContext } from "../../context";
-import { Box, Card, Grid, Skeleton, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 const Region = () => {
   const { pokemonRegion } = useGlobalContext();
 
   return (
-    <Box>
-      <Typography variant="h6" sx={{ fontWeight: 700 }}>
+    <Box
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        transform: "rotate(-90deg) translateY(20px) translateX(30px)",
+        transformOrigin: "0 50%",
+      }}
+    >
+      <Typography variant="h6" sx={{ fontWeight: 700, mr: "10px" }}>
         Region:
       </Typography>
+
       <Typography sx={{ fontWeight: 500 }}>{pokemonRegion}</Typography>
     </Box>
   );

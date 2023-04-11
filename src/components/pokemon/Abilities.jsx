@@ -8,8 +8,16 @@ const Abilities = () => {
   const { abilities } = pokemonData;
 
   return (
-    <Box>
-      <Typography variant="h6" sx={{ fontWeight: 700, mb: "1rem" }}>
+    <Box sx={{ mt: "2rem" }}>
+      <Typography
+        variant="h4"
+        color={"white"}
+        sx={{
+          fontWeight: 700,
+          mb: "2rem",
+          textShadow: "0 5px 30px rgba(0,0,0,.35)",
+        }}
+      >
         Abilities:
       </Typography>
 

@@ -11,7 +11,7 @@ import Types from "./pokemon/Types";
 import Stats from "./pokemon/Stats";
 import Abilities from "./pokemon/Abilities";
 import Region from "./pokemon/Region";
-import Shiny from "./pokemon/Shiny";
+import JapaneseName from "./pokemon/JapaneseName";
 
 const Pokedex = () => {
   const { isLoading, pokemonData } = useGlobalContext();
@@ -24,13 +24,45 @@ const Pokedex = () => {
     return <Typography>no known Pokemon with this name</Typography>;
   }
   return (
-    <Box>
-      <Grid container spacing={2}>
+    <Box sx={{ mt: "5vh", mb: "5vh", ml: "1vw", mr: "2vw" }}>
+      <Grid container>
         {/* BIOMETRICS */}
         <Grid item xs={12} sm={4} md={2} lg={2}>
-          <Title />
-          <Biometrics />
-          <Region />
+          <Grid
+            container
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-evenly",
+              height: "100%",
+            }}
+          >
+            <Grid
+              item
+              sx={{
+                display: "flex",
+              }}
+            >
+              <Title />
+            </Grid>
+
+            <Grid
+              item
+              sx={{
+                display: "flex",
+                ml: "3.5rem",
+                mt: "2rem",
+                mb: "5rem",
+                flexGrow: "0.8",
+              }}
+            >
+              <Biometrics />
+            </Grid>
+
+            <Grid item>
+              <Region />
+            </Grid>
+          </Grid>
         </Grid>
 
         {/* IMAGE */}
@@ -46,10 +78,19 @@ const Pokedex = () => {
           }}
         >
           {image ? <Image /> : <Loading />}
+          <JapaneseName />
         </Grid>
 
         {/* TYPES, STATS, ABILITIES */}
-        <Grid item xs={12} lg={4}>
+        <Grid
+          item
+          xs={12}
+          lg={4}
+          sx={{
+            pt: "5vh",
+            pl: "7px",
+          }}
+        >
           <Types />
           <Stats />
           <Abilities />

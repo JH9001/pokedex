@@ -31,6 +31,7 @@ const AppProvider = ({ children }) => {
       const response = await Promise.all([
         axios(`https://pokeapi.co/api/v2/pokemon/${pokemonSearch}`),
         axios(`https://pokeapi.co/api/v2/pokemon-species/${pokemonSearch}`),
+        axios(`https://pokeapi.co/api/v2/pokemon-species/${pokemonSearch}`),
       ]);
 
       const {
@@ -61,6 +62,14 @@ const AppProvider = ({ children }) => {
         },
       } = response[1];
 
+      const {
+        data: {
+          names: {
+            0: { name: japaneseName },
+          },
+        },
+      } = response[2];
+
       if (response) {
         setPokemonSearch(id);
         setPokemonData({
@@ -74,6 +83,7 @@ const AppProvider = ({ children }) => {
           image,
           shiny,
           color,
+          japaneseName,
         });
         setPokemonID(id);
       } else {

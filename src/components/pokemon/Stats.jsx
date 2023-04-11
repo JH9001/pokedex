@@ -9,9 +9,17 @@ const Stats = () => {
   const { stats } = pokemonData;
 
   return (
-    <Box>
-      <Typography variant="h6" sx={{ fontWeight: 700, mb: "1rem" }}>
-        Base Stats:
+    <Box sx={{ mt: "1rem" }}>
+      <Typography
+        variant="h4"
+        color={"white"}
+        sx={{
+          fontWeight: 700,
+          mb: "2rem",
+          textShadow: "0 5px 30px rgba(0,0,0,.35)",
+        }}
+      >
+        Base stats:
       </Typography>
 
       <Grid container spacing={2}>

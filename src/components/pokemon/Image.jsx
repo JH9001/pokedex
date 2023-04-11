@@ -1,4 +1,4 @@
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 
 import { useGlobalContext } from "../../context";
 
@@ -11,7 +11,7 @@ const Image = () => {
   return (
     <Grid container>
       <Grid item>
-        <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+        <Box sx={{ display: "flex", justifyContent: "flex-end", mr: "1rem" }}>
           <Shiny />
         </Box>
         <Box
@@ -19,7 +19,7 @@ const Image = () => {
           loading="lazy"
           alt={name}
           src={pokemonShiny ? shiny : image}
-          sx={{ width: "100%" }}
+          sx={{ width: "100%", mt: "3vh", mb: "3vh" }}
         />
       </Grid>
     </Grid>

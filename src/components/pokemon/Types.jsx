@@ -36,30 +36,3 @@ const Types = () => {
   );
 };
 export default Types;
-
-// {types.map((type, index) => {
-//   return (
-//     <Grid item key={index}>
-//       <Box sx={{ mb: "1rem" }}>
-//         <Card sx={{ padding: "5px" }}>
-//           <Typography sx={{ fontWeight: 500 }}>
-//             {type.type.name}
-//           </Typography>
-//         </Card>
-//       </Box>
-//     </Grid>
-//   );
-// })}
-
-// {types.map((type, index) => {
-//   typeIcons.map((icon) => {
-//     if (type.name === icon.name) {
-//       console.log("YOLO");
-//       return (
-//         <Box key={index}>
-//           <img src={icon} alt="test" />;
-//         </Box>
-//       );
-//     }
-//   });
-// })}
