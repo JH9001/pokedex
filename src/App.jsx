@@ -11,7 +11,7 @@ const App = () => {
   const { color } = pokemonData;
 
   return (
-    <Box className={color}>
+    <Box className={color} sx={{ pt: "5rem", pl: "4rem" }}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />

@@ -14,7 +14,7 @@ const SearchPokemon = () => {
 
   const handleSubmit = (values, { resetForm }) => {
     const { pokemon } = values;
-    setPokemonSearch(pokemon);
+    setPokemonSearch(pokemon.toLowerCase());
     resetForm();
   };
 

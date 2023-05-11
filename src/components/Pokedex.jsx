@@ -24,7 +24,14 @@ const Pokedex = () => {
     return <Typography>no known Pokemon with this name</Typography>;
   }
   return (
-    <Box sx={{ mt: "5vh", mb: "5vh", ml: "1vw", mr: "2vw" }}>
+    <Box
+      sx={{
+        mt: "10vh",
+        mb: "5vh",
+        ml: "1vw",
+        mr: "2vw",
+      }}
+    >
       <Grid container>
         {/* BIOMETRICS */}
         <Grid item xs={12} sm={4} md={2} lg={2}>
